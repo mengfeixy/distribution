@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <image :src="logo" class="logo" />
-    <text class="greeting">The environment is ready!</text>
+    <text class="greeting">index</text>
     <HelloWorld/>
   </div>
 </template>
