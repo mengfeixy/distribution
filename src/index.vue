@@ -7,15 +7,11 @@
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
 export default {
   name: 'App',
-  components: {
-    HelloWorld
-  },
   data () {
     return {
-      logo: 'https://gw.alicdn.com/tfs/TB1yopEdgoQMeJjy1XaXXcSsFXa-640-302.png'
+      logo: 'src/assets/images/logo.png'
     }
   }
 }
