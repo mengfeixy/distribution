@@ -7,7 +7,7 @@ docs
 
 .*
 !.gitignore
-!.eslintrc
+!.eslintrc.js
 !.editorconfig
 !.babelrc
 
