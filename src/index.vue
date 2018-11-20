@@ -2,7 +2,6 @@
   <div class="wrapper">
     <image :src="logo" class="logo" />
     <text class="greeting">index</text>
-    <HelloWorld/>
   </div>
 </template>
 
