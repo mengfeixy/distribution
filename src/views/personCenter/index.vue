@@ -10,15 +10,18 @@ let stream = weex.requireModule('stream')
 export default {
   name: 'index',
   data () {
-    return {}
+    return {
+      qwer: ''
+    }
   },
   created () {
     stream.fetch({
-      method: 'get',
+      method: 'post',
       url: '/news/index',
       type: 'json'
     }, (res) => {
-      console.log(res, '0000')
+      let data = JSON.parse(res.data)
+      console.log(data, '0000')
     })
   }
 }
