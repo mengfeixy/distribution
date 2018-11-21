@@ -19,7 +19,7 @@ const config = {
     host: ip,
     port: 8081,
     historyApiFallback: true,
-    open: true,
+    open: false,
     watchContentBase: true,
     openPage: 'web/preview.html',
     watchOptions: {
