@@ -1,13 +1,19 @@
 <template>
   <div class="keter">
+    <header title="测试" showText="true"></header>
     <image :src=imgUrl class="img"></image>
-    <text>12313213213</text>
+    <text>1231321jsadgfjksagfjksad3213</text>
   </div>
 </template>
 
 <script>
+import Header from '@/components/header.vue'
+
 export default {
   name: 'keter',
+  components: {
+    Header
+  },
   data () {
     return {
       imgUrl: ''
@@ -27,4 +33,5 @@ export default {
     width: 240px
     height: 240px
     display: block
+    margin-top: 80px;
 </style>
