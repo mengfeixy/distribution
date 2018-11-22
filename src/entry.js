@@ -1,7 +1,6 @@
 /* global Vue */
 
 /* weex initialized here, please do not move this line */
-require('@/api/mock.js')
 
 const router = require('./router')
 const App = require('@/index.vue')
