@@ -1,6 +1,6 @@
 <template>
   <div>
-    <text>test</text>
+    <text @click="linkTo">test</text>
   </div>
 </template>
 
@@ -9,6 +9,11 @@ export default {
   name: 'test',
   data () {
     return {}
+  },
+  methods: {
+    linkTo () {
+      this.$router.push('/personCenter')
+    }
   }
 }
 </script>

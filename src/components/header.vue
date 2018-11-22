@@ -1,6 +1,6 @@
 <template>
   <div class="header-box">
-    <i class="iconfont return" @click="$router.back()"></i>
+    <i class="iconfont return" :style="{color: showText ? 'rgba(34, 34, 34, 1)' : 'rgba(255, 255, 255, 1)'}" @click="$router.back()"></i>
     <text class="header-text" v-if="showText">{{title}}</text>
   </div>
 </template>
@@ -34,7 +34,6 @@ export default {
     text-align: center
 
   .return
-    color: rgba(34, 34, 34, 1)
     position: absolute
     left: 28px
     z-index: 1000
