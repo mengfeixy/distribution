@@ -1,13 +1,15 @@
 <template>
   <div>
-    <Header title="个人中心" :showText="true"></Header>
-    <text>个人中心</text>
+    <Header :showText="true"></Header>
+    <div class="header">
+      <text>个人中心</text>
+    </div>
   </div>
 </template>
 
 <script>
 import Header from '@/components/header.vue'
-// let stream = weex.requireModule('stream')
+let stream = weex.requireModule('stream')
 
 export default {
   name: 'index',
@@ -20,22 +22,26 @@ export default {
     }
   },
   created () {
-    // stream.fetch({
-    //   method: 'post',
-    //   url: '/news/index',
-    //   type: 'json'
-    // }, (res) => {
-    //   let data = JSON.parse(res.data)
-    //   console.log(data, '0000')
-    // })
+    stream.fetch({
+      method: 'post',
+      url: '/news/index',
+      type: 'json'
+    }, (res) => {
+      let data = JSON.parse(res.data)
+      console.log(data, '0000')
+    })
   }
 }
 </script>
 
 <style scoped>
-  .box {
+  .header {
     width: 100%;
     height: 424px;
     background-color: black;
+  }
+
+  .header-box i {
+    color: white;
   }
 </style>
