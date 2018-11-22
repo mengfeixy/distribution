@@ -1,12 +1,21 @@
 <template>
   <div class="keter">
-    <text class="test">test1231231</text>
+    <image :src=imgUrl class="img"></image>
+    <text>12313213213</text>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'keter'
+  name: 'keter',
+  data () {
+    return {
+      imgUrl: ''
+    }
+  },
+  created () {
+    this.imgUrl = '/src/assets/images/weixin.jpg'
+  }
 }
 </script>
 
@@ -14,6 +23,8 @@ export default {
 .keter
   width: 100%
   height: auto
-  .test
-    color: red
+  &>.img
+    width: 240px
+    height: 240px
+    display: block
 </style>
