@@ -9,20 +9,20 @@
 </template>
 
 <script>
-import Header from '@/components/header.vue'
+  import Header from '@/components/header.vue'
 
-export default {
-  name: 'submitApply',
-  components: {
-    Header
-  },
-  data () {
-    return {}
-  },
-  created () {
-    console.log('in')
+  export default {
+    name: 'submitApply',
+    components: {
+      Header
+    },
+    data () {
+      return {}
+    },
+    created () {
+      console.log('in')
+    }
   }
-}
 </script>
 
 <style scoped>

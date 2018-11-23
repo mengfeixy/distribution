@@ -34,31 +34,31 @@
 </template>
 
 <script>
-import Header from '@/components/header.vue'
-// let stream = weex.requireModule('stream')
+  import Header from '@/components/header.vue'
+  // let stream = weex.requireModule('stream')
 
-export default {
-  name: 'index',
-  components: {
-    Header
-  },
-  data () {
-    return {
-      headerImg: '/src/assets/images/headerImg@2x.png', // 头像
-      showPop: false // 是否显示绑定方式弹窗
+  export default {
+    name: 'index',
+    components: {
+      Header
+    },
+    data () {
+      return {
+        headerImg: '/src/assets/images/headerImg@2x.png', // 头像
+        showPop: false // 是否显示绑定方式弹窗
+      }
+    },
+    created () {
+      // stream.fetch({
+      //   method: 'post',
+      //   url: '/news/index',
+      //   type: 'json'
+      // }, (res) => {
+      //   let data = JSON.parse(res.data)
+      //   console.log(data, '0000')
+      // })
     }
-  },
-  created () {
-    // stream.fetch({
-    //   method: 'post',
-    //   url: '/news/index',
-    //   type: 'json'
-    // }, (res) => {
-    //   let data = JSON.parse(res.data)
-    //   console.log(data, '0000')
-    // })
   }
-}
 </script>
 
 <style lang="stylus" scoped>

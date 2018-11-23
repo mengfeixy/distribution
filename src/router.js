@@ -1,6 +1,5 @@
 /* global Vue */
 import Router from 'vue-router'
-import test from '@/views/test'
 
 // Aom-am
 import Center from '@/views/personCenter'
@@ -20,8 +19,7 @@ module.exports = new Router({
   routes: [
     {
       path: '/',
-      name: 'test',
-      component: test
+      redirect: '/personCenter'
     }, {
       path: '/personCenter',
       name: 'Center',

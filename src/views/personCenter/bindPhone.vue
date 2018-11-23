@@ -16,30 +16,30 @@
 </template>
 
 <script>
-import Header from '@/components/header.vue'
+  import Header from '@/components/header.vue'
 
-export default {
-  name: 'bindPhone',
-  components: {
-    Header
-  },
-  data () {
-    return {
-      bindPhone: '',
-      disabled: true
-    }
-  },
-  created () {
-    console.log('bind')
-  },
-  methods: {
-    bindPhoneFun () {
-      if (this.bindPhone.length === 11) {
-        this.$router.push('/submitApply')
+  export default {
+    name: 'bindPhone',
+    components: {
+      Header
+    },
+    data () {
+      return {
+        bindPhone: '',
+        disabled: true
+      }
+    },
+    created () {
+      console.log('bind')
+    },
+    methods: {
+      bindPhoneFun () {
+        if (this.bindPhone.length === 11) {
+          this.$router.push('/submitApply')
+        }
       }
     }
   }
-}
 </script>
 
 <style lang="stylus" scoped>
