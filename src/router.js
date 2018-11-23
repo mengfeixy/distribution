@@ -8,6 +8,7 @@ import BindPhone from '@/views/personCenter/bindPhone'
 
 // keter
 import keter from '@/views/keter/index'
+import commissionDetail from '@/views/keter/commission_detail'
 
 Vue.use(Router)
 
@@ -29,6 +30,10 @@ module.exports = new Router({
       path: '/bindPhone',
       name: 'BindPhone',
       component: BindPhone
+    }, {
+      path: '/keter/commission-detail',
+      name: 'commissionDetail',
+      component: commissionDetail
     }
   ]
 })
