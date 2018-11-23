@@ -11,7 +11,8 @@ import keter from '@/views/keter/index'
 import commissionDetail from '@/views/keter/commission_detail'
 
 // Mr.Piz
-import Login from '@/views/login'
+import Join from '@/views/login/join' // 加入分销页面
+import Login from '@/views/login' // 登录页面
 
 Vue.use(Router)
 
@@ -36,6 +37,10 @@ module.exports = new Router({
       path: '/keter/commission-detail',
       name: 'commissionDetail',
       component: commissionDetail
+    }, {
+      path: '/join',
+      name: 'Join',
+      component: Join
     }, {
       path: '/login',
       name: 'Login',
