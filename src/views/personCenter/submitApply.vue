@@ -1,9 +1,11 @@
 <template>
   <div>
     <Header :showText="true" title="提交申请"></Header>
-    <div style="margin-top: 104px;">
+    <div class="apply-content">
       <i class="iconfont checkbox-circle-chec"></i>
       <text>绑定申请已提交，等待对方审核通过</text>
+      <text>可在“绑定审核”中查看进程</text>
+      <button>完成</button>
     </div>
   </div>
 </template>
@@ -25,6 +27,7 @@
   }
 </script>
 
-<style scoped>
-
+<style lang="stylus" scoped>
+  .apply-content
+    width 100%
 </style>
