@@ -19,8 +19,7 @@ module.exports = new Router({
   routes: [
     {
       path: '/',
-      name: 'test',
-      component: test
+      redirect: '/personCenter'
     }, {
       path: '/personCenter',
       name: 'Center',
