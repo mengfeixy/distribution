@@ -1,6 +1,10 @@
 <template>
-  <div class="header-box">
-    <i class="iconfont return" :style="{color: showText ? 'rgba(34, 34, 34, 1)' : 'rgba(255, 255, 255, 1)'}" @click="$router.back()"></i>
+  <div class="header-box" :style="{background: showText ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)'}">
+    <i
+      class="iconfont return"
+      :style="{color: showText ? 'rgba(34, 34, 34, 1)' : 'rgba(255, 255, 255, 1)'}"
+      @click="$router.back()">
+    </i>
     <text class="header-text" v-if="showText">{{title}}</text>
   </div>
 </template>

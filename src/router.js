@@ -1,9 +1,10 @@
 /* global Vue */
 import Router from 'vue-router'
-// import test from '@/views/test'
+import test from '@/views/test'
 
 // Aom-am
 import Center from '@/views/personCenter'
+import BindPhone from '@/views/personCenter/bindPhone'
 
 // keter
 import keter from '@/views/keter/index'
@@ -14,9 +15,8 @@ module.exports = new Router({
   routes: [
     {
       path: '/',
-      // name: 'test',
-      // component: test
-      redirect: '/personCenter'
+      name: 'test',
+      component: test
     }, {
       path: '/personCenter',
       name: 'Center',
@@ -25,6 +25,10 @@ module.exports = new Router({
       path: '/keter',
       name: 'keter',
       component: keter
+    }, {
+      path: '/bindPhone',
+      name: 'BindPhone',
+      component: BindPhone
     }
   ]
 })
