@@ -2,6 +2,12 @@
   <div class="commission-detail">
     <header title="佣金明细" :showText="true"></header>
     <div class="space"></div>
+    <ul class="list">
+      <li v-for="(item, index) in list" :key="index">
+        <div>{{item.order_no}}<br >{{item.date}}</div>
+        <div :class="{'jianshao': item.num < 0}">{{item.num}}</div>
+      </li>
+    </ul>
   </div>
 </template>
 
@@ -26,7 +32,9 @@ export default {
       type: 'json',
       url: '/keter/commission-detail'
     }, (res) => {
-      console.log(res, '11111111')
+      let data = JSON.parse(res.data)
+      console.log(data, '11111111')
+      this.list = data
     })
   }
 }
@@ -36,6 +44,8 @@ export default {
 .commission-detail
   width 100%
   height auto
+  .header-box
+    background-color #fff
   .space
     position fixed
     top 88px
@@ -43,4 +53,28 @@ export default {
     width 100%
     height 10px
     background-color rgba(236, 236, 236, 1)
+  .list
+    width calc(100% - 40px)
+    margin 98px auto 0
+    height auto
+    padding 0 0 10px 0
+    box-sizing border-box
+    li
+      list-style-type none
+      width 100%
+      height 144px
+      margin-top 10px
+      border-bottom 1px solid rgba(233, 237, 238, 1)
+      div
+        width 50%
+        height 144px
+        line-height 72px
+        display block
+        float left
+        &:nth-child(2)
+          line-height 144px
+          text-align right
+        &.jianshao{
+          color rgba(217, 173, 101, 1)
+        }
 </style>
