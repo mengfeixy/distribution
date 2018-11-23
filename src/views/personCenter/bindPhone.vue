@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :showText="true" title="绑定手机号"></Header>
+    <Header title="绑定手机号"></Header>
     <div class="input-content">
       <div>
         <text>+86</text>

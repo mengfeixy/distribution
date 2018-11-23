@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Header :showText="true" title="提交申请"></Header>
+    <Header title="提交申请"></Header>
     <div class="apply-content">
       <i class="iconfont checkbox-circle-chec"></i>
       <text>绑定申请已提交，等待对方审核通过</text>
@@ -20,9 +20,6 @@
     },
     data () {
       return {}
-    },
-    created () {
-      console.log('in')
     }
   }
 </script>
