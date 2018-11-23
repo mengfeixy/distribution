@@ -11,6 +11,9 @@ import SubmitApply from '@/views/personCenter/submitApply'
 import keter from '@/views/keter/index'
 import commissionDetail from '@/views/keter/commission_detail'
 
+// Mr.Piz
+import Login from '@/views/login'
+
 Vue.use(Router)
 
 module.exports = new Router({
@@ -35,6 +38,10 @@ module.exports = new Router({
       path: '/keter/commission-detail',
       name: 'commissionDetail',
       component: commissionDetail
+    }, {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }, {
       path: '/submitApply',
       name: 'SubmitApply',
