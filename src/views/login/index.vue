@@ -1,17 +1,12 @@
 <template>
   <div>
-    <header></header>
+    <text>login</text>
   </div>
 </template>
 
 <script>
-  import Header from '@/components/header'
-
   export default {
-    name: 'index',
-    components: {
-      Header
-    }
+    name: 'index'
   }
 </script>
 
