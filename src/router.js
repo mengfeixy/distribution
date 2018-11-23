@@ -1,6 +1,5 @@
 /* global Vue */
 import Router from 'vue-router'
-import test from '@/views/test'
 
 // Aom-am
 import Center from '@/views/personCenter'

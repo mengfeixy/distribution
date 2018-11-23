@@ -12,32 +12,32 @@
 </template>
 
 <script>
-import Header from '@/components/header.vue'
-require('@/api/keter/commission_detail.js')
-let stream = weex.requireModule('stream')
+  import Header from '@/components/header.vue'
+  require('@/api/keter/commission_detail.js')
+  let stream = weex.requireModule('stream')
 
-export default {
-  name: 'commissionDetail',
-  components: {
-    Header
-  },
-  data () {
-    return {
-      list: []
+  export default {
+    name: 'commissionDetail',
+    components: {
+      Header
+    },
+    data () {
+      return {
+        list: []
+      }
+    },
+    created () {
+      stream.fetch({
+        method: 'post',
+        type: 'json',
+        url: '/keter/commission-detail'
+      }, (res) => {
+        let data = JSON.parse(res.data)
+        console.log(data, '11111111')
+        this.list = data
+      })
     }
-  },
-  created () {
-    stream.fetch({
-      method: 'post',
-      type: 'json',
-      url: '/keter/commission-detail'
-    }, (res) => {
-      let data = JSON.parse(res.data)
-      console.log(data, '11111111')
-      this.list = data
-    })
   }
-}
 </script>
 
 <style lang="stylus" scoped>

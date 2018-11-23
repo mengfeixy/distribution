@@ -10,29 +10,29 @@
 </template>
 
 <script>
-import Header from '@/components/header.vue'
+  import Header from '@/components/header.vue'
 
-export default {
-  name: 'keter',
-  components: {
-    Header
-  },
-  data () {
-    return {
-      imgUrl: ''
-    }
-  },
-  created () {
-    this.imgUrl = '/src/assets/images/weixin.jpg'
-  },
-  methods: {
-    goToCommissionDetail () {
-      this.$router.push({
-        name: 'commissionDetail'
-      })
+  export default {
+    name: 'keter',
+    components: {
+      Header
+    },
+    data () {
+      return {
+        imgUrl: ''
+      }
+    },
+    created () {
+      this.imgUrl = '/src/assets/images/weixin.jpg'
+    },
+    methods: {
+      goToCommissionDetail () {
+        this.$router.push({
+          name: 'commissionDetail'
+        })
+      }
     }
   }
-}
 </script>
 
 <style lang="stylus" scoped>
