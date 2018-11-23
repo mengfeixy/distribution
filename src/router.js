@@ -5,6 +5,7 @@ import test from '@/views/test'
 // Aom-am
 import Center from '@/views/personCenter'
 import BindPhone from '@/views/personCenter/bindPhone'
+import SubmitApply from '@/views/personCenter/submitApply'
 
 // keter
 import keter from '@/views/keter/index'
@@ -34,6 +35,10 @@ module.exports = new Router({
       path: '/keter/commission-detail',
       name: 'commissionDetail',
       component: commissionDetail
+    }, {
+      path: '/submitApply',
+      name: 'SubmitApply',
+      component: SubmitApply
     }
   ]
 })

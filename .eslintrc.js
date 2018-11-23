@@ -24,6 +24,7 @@ module.exports = {
   ],
   // add your custom rules here
   rules: {
+    'vue/script-indent': ['error', 2, { 'baseIndent': 1 }],
     'vue/no-parsing-error':  [2, {
       "x-invalid-end-tag": false
     }],

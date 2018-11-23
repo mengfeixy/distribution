@@ -9,7 +9,6 @@
     </div>
     <button
         :class="bindPhone.length === 11 ? 'default-btn' : 'disable-btn'"
-        :disabled='disabled'
         @click="bindPhoneFun">
       确认
     </button>
@@ -30,10 +29,14 @@ export default {
       disabled: true
     }
   },
+  created () {
+    console.log('bind')
+  },
   methods: {
     bindPhoneFun () {
-      console.log('in')
-      // this.$router.push('/personCenter')
+      if (this.bindPhone.length === 11) {
+        this.$router.push('/submitApply')
+      }
     }
   }
 }
