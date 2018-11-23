@@ -10,13 +10,13 @@
 </template>
 
 <script>
-export default {
-  name: 'header',
-  props: {
-    title: '', // 标题
-    showText: Boolean // 是否显示title
+  export default {
+    name: 'header',
+    props: {
+      title: '', // 标题
+      showText: Boolean // 是否显示title
+    }
   }
-}
 </script>
 
 <style lang="stylus" scoped>
