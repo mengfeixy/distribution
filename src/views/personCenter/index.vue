@@ -12,12 +12,12 @@
       </div>
       <div class="second-line">
         <text>¥0.00</text>
-        <button>提现</button>
+        <button @click="showPopWithdraw = true">提现</button>
       </div>
     </div>
     <button class="default-btn" @click="showPop = true">绑定上级用户</button>
 
-    <!-- 弹窗 -->
+    <!-- 手机绑定弹窗 -->
     <div v-if="showPop">
       <div class="pop-mask" @click="showPop = false"></div>
       <div class="pop-content">
@@ -25,8 +25,20 @@
           <text>请选择绑定方式</text>
         </div>
         <div class="content-btns">
-          <text style="color: rgba(153, 153, 153, 1);border-right: 2px solid rgba(205, 211, 215, 1)">扫码绑定</text>
-          <text @click="$router.push('/bindPhone')">手机号绑定</text>
+          <text style="width: 50%;color: rgba(153, 153, 153, 1);border-right: 2px solid rgba(205, 211, 215, 1)">扫码绑定</text>
+          <text style="width: 50%;" @click="$router.push('/bindPhone')">手机号绑定</text>
+        </div>
+      </div>
+    </div>
+    <!-- 提现弹窗 -->
+    <div v-if="showPopWithdraw">
+      <div class="pop-mask" @click="showPopWithdraw = false"></div>
+      <div class="pop-content">
+        <div class="content-title">
+          <text>金额超过10元才可提现</text>
+        </div>
+        <div class="confirm-btn">
+          <text @click="showPopWithdraw = false">确认</text>
         </div>
       </div>
     </div>
@@ -45,7 +57,8 @@
     data () {
       return {
         headerImg: '/src/assets/images/headerImg@2x.png', // 头像
-        showPop: false // 是否显示绑定方式弹窗
+        showPop: false, // 绑定方式弹窗
+        showPopWithdraw: false // 提现弹窗
       }
     },
     created () {
@@ -106,6 +119,7 @@
       border-radius 4px
       border 2px solid
       text-align center
+      outline none
 
   .default-btn
     width 92.5%
@@ -117,6 +131,8 @@
     color rgba(255, 255, 255, 1)
     text-align center
     margin 0 auto
+    border none
+    outline none
 
   .pop-mask
     background rgba(74, 74, 74, 0.25)
@@ -161,9 +177,9 @@
     height 96px
     flex-direction row
 
+  .confirm-btn
   .content-btns
     p
-      width 50%
       text-align center
       line-height 96px
       color rgba(34, 34, 34, 1)

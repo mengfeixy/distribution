@@ -1,6 +1,7 @@
 <template>
   <div class="header-box" :style="{background: showText ? 'rgba(255, 255, 255, 1)' : 'rgba(255, 255, 255, 0)'}">
     <i
+      v-if="showBack"
       class="iconfont return"
       :style="{color: showText ? 'rgba(34, 34, 34, 1)' : 'rgba(255, 255, 255, 1)'}"
       @click="$router.back()">
@@ -14,7 +15,14 @@
     name: 'header',
     props: {
       title: '', // 标题
-      showText: Boolean // 是否显示title
+      showBack: { // 返回箭头 - 默认显示
+        type: Boolean,
+        default: true
+      },
+      showText: { // 是否显示title - 默认显示
+        type: Boolean,
+        default: true
+      }
     }
   }
 </script>
