@@ -1,7 +1,6 @@
 <template>
   <div class="commission-detail">
     <header title="佣金明细" :showText="true"></header>
-    <div class="space"></div>
     <ul class="list">
       <li v-for="(item, index) in list" :key="index">
         <div>{{item.order_no}}<br >{{item.date}}</div>
@@ -46,31 +45,27 @@
   height auto
   .header-box
     background-color #fff
-  .space
-    position fixed
-    top 88px
-    left 0
-    width 100%
-    height 10px
-    background-color rgba(236, 236, 236, 1)
   .list
-    width calc(100% - 40px)
+    width 100%
     margin 98px auto 0
     height auto
-    padding 0 0 10px 0
+    padding 0 10px 10px 10px
     box-sizing border-box
+    background-color #fff
     li
       list-style-type none
       width 100%
       height 144px
       margin-top 10px
       border-bottom 1px solid rgba(233, 237, 238, 1)
+      overflow hidden
       div
         width 50%
         height 144px
         line-height 72px
         display block
         float left
+        font-size 16px
         &:nth-child(2)
           line-height 144px
           text-align right
