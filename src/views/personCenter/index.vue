@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div style="position: relative;height: 100vh">
     <Header :showText="false"></Header>
     <div class="center-header">
       <image style="width: 118px;height: 118px;margin: 104px auto 28px" :src="headerImg"></image>
@@ -15,7 +15,34 @@
         <button @click="showPopWithdraw = true">提现</button>
       </div>
     </div>
-    <button class="default-btn" @click="showPop = true">绑定上级用户</button>
+    <button v-if="showBindBtn" class="default-btn" @click="showPop = true">绑定上级用户</button>
+    <!-- 审核通过显示的内容 -->
+    <div v-if="!showBindBtn" class="verify-pass-box">
+      <div style="position: relative;">
+        <i class="iconfont binding_audit"></i>
+        <text>绑定审核</text>
+        <span class="bind-number">20</span>
+      </div>
+      <div>
+        <!--<router-link to="/bindVerify">-->
+          <i class="iconfont bound_user"></i>
+        <!--</router-link>-->
+        <text>已绑定用户</text>
+        <text>16人</text>
+      </div>
+      <div>
+        <i class="iconfont distribution"></i>
+        <text>推广分销</text>
+      </div>
+      <div>
+        <i class="iconfont commissions"></i>
+        <text>佣金明细</text>
+      </div>
+      <div>
+        <i class="iconfont withdrawal_record"></i>
+        <text>提现记录</text>
+      </div>
+    </div>
 
     <!-- 手机绑定弹窗 -->
     <div v-if="showPop">
@@ -47,7 +74,8 @@
 
 <script>
   import Header from '@/components/header.vue'
-  // let stream = weex.requireModule('stream')
+  require('@/api/Aom-am')
+  let stream = weex.requireModule('stream')
 
   export default {
     name: 'index',
@@ -58,18 +86,22 @@
       return {
         headerImg: '/src/assets/images/headerImg@2x.png', // 头像
         showPop: false, // 绑定方式弹窗
-        showPopWithdraw: false // 提现弹窗
+        showPopWithdraw: false, // 提现弹窗
+        showBindBtn: false // 是否显示绑定上级用户按钮
       }
     },
     created () {
-      // stream.fetch({
-      //   method: 'post',
-      //   url: '/news/index',
-      //   type: 'json'
-      // }, (res) => {
-      //   let data = JSON.parse(res.data)
-      //   console.log(data, '0000')
-      // })
+      stream.fetch({
+        method: 'post',
+        url: '/isLogin',
+        type: 'json'
+      }, (res) => {
+        let data = JSON.parse(res.data)
+        console.log(data, '是否登录')
+        if (data.code === 0) {
+          this.$router.replace('/login')
+        }
+      })
     }
   }
 </script>
@@ -155,11 +187,11 @@
     z-index 7000
     top 50%
     left 50%
-    -webkit-transform: translate(-50%, -50%)
-    -moz-transform: translate(-50%, -50%)
-    -ms-transform: translate(-50%, -50%)
-    -o-transform: translate(-50%, -50%)
-    transform: translate(-50%, -50%)
+    -webkit-transform translate(-50%, -50%)
+    -moz-transform translate(-50%, -50%)
+    -ms-transform translate(-50%, -50%)
+    -o-transform translate(-50%, -50%)
+    transform translate(-50%, -50%)
 
   .content-title
     height 200px
@@ -183,4 +215,46 @@
       text-align center
       line-height 96px
       color rgba(34, 34, 34, 1)
+
+  .verify-pass-box
+    background rgba(255, 255, 255, 1)
+    padding 40px 30px 0
+    width 100%
+    flex-direction row
+    justify-content space-between
+    flex-wrap wrap
+    position absolute
+    top 644px
+    bottom 0
+
+  .verify-pass-box
+    div
+      i
+      p
+        margin 0 auto
+      i
+        font-size 60px
+        color rgba(102, 102, 102, 1)
+      p
+        font-size 28px
+        color rgba(153, 153, 153, 1)
+        text-wrap none
+    div
+      width calc(100%/4)
+      margin-bottom 46px
+
+  .bind-number
+    display block
+    width 40px
+    height 28px
+    background rgba(217, 173, 101, 1)
+    -webkit-border-radius 60px
+    -moz-border-radius 60px
+    border-radius 60px
+    color rgba(255, 255, 255, 1)
+    font-size 22px
+    text-align center
+    position absolute
+    top 2px
+    right 32px
 </style>

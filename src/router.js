@@ -5,6 +5,7 @@ import Router from 'vue-router'
 import Center from '@/views/personCenter'
 import BindPhone from '@/views/personCenter/bindPhone'
 import SubmitApply from '@/views/personCenter/submitApply'
+import BindVerify from '@/views/personCenter/bindVerify'
 
 // keter
 import keter from '@/views/keter/index'
@@ -49,6 +50,10 @@ module.exports = new Router({
       path: '/submitApply',
       name: 'SubmitApply',
       component: SubmitApply
+    }, {
+      path: '/bindVerify',
+      name: 'BindVerify',
+      component: BindVerify
     }
   ]
 })
