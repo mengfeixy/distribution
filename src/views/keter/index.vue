@@ -8,7 +8,7 @@
       <div class="button go-to" @click="goToCommissionDetail">查看佣金明细</div>
     </div>
     <div class="popup" v-show="popup.isShow" :style="{'height': height, 'width': width}" @click="closePopup">
-      <div class="share-content">QQ</div>
+      <div class="share-content">QQQQQQQQQQ</div>
     </div>
   </div>
 </template>
