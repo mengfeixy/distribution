@@ -69,7 +69,6 @@
         &:nth-child(2)
           line-height 144px
           text-align right
-        &.jianshao{
+        &.jianshao
           color rgba(217, 173, 101, 1)
-        }
 </style>
