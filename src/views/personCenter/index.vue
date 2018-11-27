@@ -24,9 +24,9 @@
         <span class="bind-number">20</span>
       </div>
       <div>
-        <!--<router-link to="/bindVerify">-->
+        <router-link to="/bindVerify">
           <i class="iconfont bound_user"></i>
-        <!--</router-link>-->
+        </router-link>
         <text>已绑定用户</text>
         <text>16人</text>
       </div>
