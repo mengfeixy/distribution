@@ -3,7 +3,7 @@
     <header title="keter" :showText="true"></header>
     <div class="container">
       <image :src=imgUrl class="img"></image>
-      <div class="button save">保存</div>
+      <div class="button save" @click="scan">扫描</div>
       <div class="button share-to" @click="showPopup">分享</div>
       <div class="button go-to" @click="goToCommissionDetail">查看佣金明细</div>
     </div>
@@ -15,6 +15,7 @@
 
 <script>
   import Header from '@/components/header.vue'
+  const event = weex.requireModule('event')
 
   export default {
     name: 'keter',
@@ -41,6 +42,16 @@
     methods: {
       showPopup () {
         this.popup.isShow = true
+      },
+      scan () {
+        console.log('1111111111111')
+        try {
+          event.openURL('weex://go/scan')
+        } catch (e) {
+          try {
+            navigator.push({ url: 'weex://go/scan' })
+          } catch (e) {}
+        }
       },
       closePopup () {
         this.popup.isShow = false
