@@ -2,7 +2,7 @@
   <div style="position: relative;height: 100vh">
     <Header :showText="false"></Header>
     <div class="center-header">
-      <image style="width: 118px;height: 118px;margin: 104px auto 28px" :src="headerImg"></image>
+      <image style="width: 118px;height: 118px;margin: 104px auto 28px" :src="headerImg"/>
       <text style="margin: 0 auto;color: white">18621549878</text>
     </div>
     <div class="center-content">
@@ -19,16 +19,18 @@
     <!-- 审核通过显示的内容 -->
     <div v-if="!showBindBtn" class="verify-pass-box">
       <div style="position: relative;">
-        <i class="iconfont binding_audit"></i>
-        <text>绑定审核</text>
-        <span class="bind-number">20</span>
+        <router-link to="/bindVerify">
+          <i class="iconfont binding_audit"></i>
+          <text>绑定审核</text>
+          <span class="bind-number">20</span>
+        </router-link>
       </div>
       <div>
-        <router-link to="/bindVerify">
+        <router-link to="/bindUser">
           <i class="iconfont bound_user"></i>
+          <text>已绑定用户</text>
+          <text>16人</text>
         </router-link>
-        <text>已绑定用户</text>
-        <text>16人</text>
       </div>
       <div>
         <i class="iconfont distribution"></i>
