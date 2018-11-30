@@ -6,6 +6,7 @@ import Center from '@/views/personCenter'
 import BindPhone from '@/views/personCenter/bindPhone'
 import SubmitApply from '@/views/personCenter/submitApply'
 import BindVerify from '@/views/personCenter/bindVerify'
+import BindUser from '@/views/personCenter/bindUser'
 
 // keter
 import keter from '@/views/keter/index'
@@ -64,6 +65,10 @@ module.exports = new Router({
       path: '/bindVerify',
       name: 'BindVerify',
       component: BindVerify
+    }, {
+      path: '/bindUser',
+      name: 'BindUser',
+      component: BindUser
     }
   ]
 })
