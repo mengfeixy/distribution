@@ -1,9 +1,9 @@
 <template>
   <div class="commission-detail">
-    <header title="佣金明细" :showText="true"></header>
+    <Header title="佣金明细" :showText="true"></Header>
     <ul class="list">
       <li v-for="(item, index) in list" :key="index">
-        <div>{{item.order_no}}<br >{{item.date}}</div>
+        <div>{{item.order_no}}<br />>{{item.date}}</div>
         <div :class="{'jianshao': item.num < 0}">{{item.num}}</div>
       </li>
     </ul>

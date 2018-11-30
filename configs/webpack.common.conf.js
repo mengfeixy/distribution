@@ -51,7 +51,7 @@ const getEntryFile = () => {
 }
 
 // The entry file for web needs to add some library. such as vue, weex-vue-render
-// 1. src/entry.js 
+// 1. src/entry.js
 // import Vue from 'vue';
 // import weex from 'weex-vue-render';
 // weex.init(Vue);
@@ -78,7 +78,7 @@ const useEslint = config.dev.useEslint ? [createLintingRule()] : []
 const plugins = [
   /**
    * Plugin: webpack.DefinePlugin
-   * Description: The DefinePlugin allows you to create global constants which can be configured at compile time. 
+   * Description: The DefinePlugin allows you to create global constants which can be configured at compile time.
    *
    * See: https://webpack.js.org/plugins/define-plugin/
    */
@@ -124,7 +124,7 @@ const webConfig = {
    * See: http://webpack.github.io/docs/configuration.html#module
    */
   module: {
-    // webpack 2.0 
+    // webpack 2.0
     rules: useEslint.concat([
       {
         test: /\.js$/,
@@ -164,7 +164,7 @@ const webConfig = {
                 }
               }
             ]
-            
+
           })
         }],
         exclude: config.excludeModuleReg

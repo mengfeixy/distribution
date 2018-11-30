@@ -43,9 +43,9 @@
       width 48%
       height 96px
       border 2px solid rgba(34, 34, 34, 1)
-      -webkit-border-radius: 96px
-      -moz-border-radius: 96px
-      border-radius: 96px
+      -webkit-border-radius 96px
+      -moz-border-radius 96px
+      border-radius 96px
       outline none
       background rgba(255, 255, 255, 1)
       color rgba(34, 34, 34, 1)

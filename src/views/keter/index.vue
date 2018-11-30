@@ -1,6 +1,6 @@
 <template>
   <div class="keter" :style="{'height': height}">
-    <header title="keter" :showText="true"></header>
+    <Header title="keter123" :showText="true"></Header>
     <div class="container">
       <image :src=imgUrl class="img"></image>
       <div class="button save" @click="scan">扫描</div>
@@ -8,7 +8,7 @@
       <div class="button go-to" @click="goToCommissionDetail">查看佣金明细</div>
     </div>
     <div class="popup" v-show="popup.isShow" :style="{'height': height, 'width': width}" @click="closePopup">
-      <div class="share-content">QQQQQQQQQQ</div>
+      <div class="share-content">QQ</div>
     </div>
   </div>
 </template>

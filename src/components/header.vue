@@ -29,24 +29,23 @@
 
 <style lang="stylus" scoped>
   .header-box
-    width: 100%
-    height: 88px
-    position: fixed;
-    z-index: 5000;
-    top: 0;
-    left: 0;
-
-  .header-text
-  .return
-    font-size: 36px
-    line-height: 88px
-
-  .header-text
-    color: rgba(102, 102, 102, 1)
-    text-align: center
+    width 100%
+    height 88px
+    position fixed
+    z-index 5000
+    top: 0
+    left: 0
 
   .return
-    position: absolute
-    left: 28px
-    z-index: 1000
+    font-size 36px
+    line-height 88px
+
+  .header-text
+    color rgba(102, 102, 102, 1)
+    text-align center
+
+  .return
+    position absolute
+    left 28px
+    z-index 1000
 </style>

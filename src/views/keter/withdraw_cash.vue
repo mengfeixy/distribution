@@ -1,6 +1,6 @@
 <template>
   <div class="withdraw-cash">
-    <header title="提现" :showText="true"></header>
+    <Header title="提现" :showText="true"></Header>
     <div class="content">
       <div class="top">
         <text>到账地址</text>
@@ -71,8 +71,8 @@
 
 <style lang="stylus" scoped>
 .withdraw-cash
-  width: 100%
-  height: auto
+  width 100%
+  height auto
   .content
     width 100%
     height auto

@@ -1,6 +1,6 @@
 <template>
   <div class="withdraw-success">
-    <header title="提交申请" :showText="true"></header>
+    <Header title="提交申请" :showText="true"></Header>
     <div class="content">
       <text>提现成功</text>
     </div>
