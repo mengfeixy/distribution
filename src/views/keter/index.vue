@@ -2,7 +2,7 @@
   <div class="keter" :style="{'height': height}">
     <Header title="keter123" :showText="true"></Header>
     <div class="container">
-      <image :src=imgUrl class="img"></image>
+      <image :src=imgUrl class="img"/>
       <div class="button save" @click="scan">扫描</div>
       <div class="button share-to" @click="showPopup">分享</div>
       <div class="button go-to" @click="goToCommissionDetail">查看佣金明细</div>
