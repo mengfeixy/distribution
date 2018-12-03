@@ -7,6 +7,11 @@
       @click="$router.back()">
     </i>
     <text class="header-text" v-if="showText">{{title}}</text>
+    <i
+      v-if="showQRcodeIco"
+      class="iconfont qr_code"
+      style="color: rgba(255, 255, 255, 1)"
+      @click='viewQRcode'></i>
   </div>
 </template>
 
@@ -22,6 +27,15 @@
       showText: { // 是否显示title - 默认显示
         type: Boolean,
         default: true
+      },
+      showQRcodeIco: { // 是否显示二维码图标
+        type: Boolean,
+        default: false
+      }
+    },
+    methods: {
+      viewQRcode () {
+        this.$emit('viewQRcode')
       }
     }
   }
@@ -37,6 +51,8 @@
     left: 0
 
   .return
+  .qr_code
+  .header-text
     font-size 36px
     line-height 88px
 
@@ -47,5 +63,10 @@
   .return
     position absolute
     left 28px
-    z-index 1000
+    z-index 5000
+
+  .qr_code
+    position absolute
+    right 28px
+    z-index 5000
 </style>
