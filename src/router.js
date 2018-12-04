@@ -13,6 +13,7 @@ import keter from '@/views/keter/index'
 import commissionDetail from '@/views/keter/commission_detail'
 import withdrawCash from '@/views/keter/withdraw_cash'
 import withdrawSuccess from '@/views/keter/withdraw_success'
+import withdrawalRecords from '@/views/keter/withdrawal_records'
 
 // Mr.Piz
 import Join from '@/views/login/join' // 加入分销页面
@@ -49,6 +50,10 @@ module.exports = new Router({
       path: '/keter/withdraw-success',
       name: 'withdrawSuccess',
       component: withdrawSuccess
+    }, {
+      path: '/keter/withdrawal-records',
+      name: 'withdrawalRecords',
+      component: withdrawalRecords
     }, {
       path: '/join',
       name: 'Join',

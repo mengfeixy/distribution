@@ -1,10 +1,10 @@
 <template>
-  <div class="commission-detail">
-    <Header title="佣金明细" :showText="true"></Header>
+  <div class="withdrawal-records">
+    <Header title="提现记录" :showText="true"></Header>
     <ul class="list">
       <li v-for="(item, index) in list" :key="index">
-        <div>{{item.order_no}}<br />{{item.date}}</div>
-        <div :class="{'jianshao': item.num < 0}">{{item.num}}</div>
+        <div>{{item.name}}</div>
+        <div><span :class="{'jianshao': item.num < 0}">{{item.num}}</span><br />{{item.date}}</div>
       </li>
     </ul>
   </div>
@@ -12,11 +12,11 @@
 
 <script>
   import Header from '@/components/header.vue'
-  require('@/api/keter/commission_detail.js')
+  require('@/api/keter/withdrawal_records.js')
   let stream = weex.requireModule('stream')
 
   export default {
-    name: 'commissionDetail',
+    name: 'withdrawalRecords',
     components: {
       Header
     },
@@ -29,7 +29,7 @@
       stream.fetch({
         method: 'post',
         type: 'json',
-        url: '/keter/commission-detail'
+        url: '/keter/commission-records'
       }, (res) => {
         let data = JSON.parse(res.data)
         console.log(data, '11111111')
@@ -40,7 +40,7 @@
 </script>
 
 <style lang="stylus" scoped>
-.commission-detail
+.withdrawal-records
   width 100%
   height auto
   .header-box
@@ -66,9 +66,12 @@
         display block
         float left
         font-size 16px
+        line-height 144px
         &:nth-child(2)
-          line-height 144px
           text-align right
-        &.jianshao
-          color rgba(217, 173, 101, 1)
+          line-height 72px
+          span
+            font-size 16px
+          .jianshao
+            color rgba(217, 173, 101, 1)
 </style>
