@@ -53,13 +53,14 @@ const boundList = function (obj) {
 /**
  * Mock.mock( url, post/get , 返回的数据)
  */
-// 判断是否登录
-Mock.mock('/isLogin', 'post', {
+// 判断是否绑定了上级用户 0未绑定 1已绑定
+Mock.mock('/isBind', 'post', {
   'code|0-2': 0
 })
-// 判断是否绑定了上级用户
-Mock.mock('/isBind', 'post', {
-  'code|0-1': 0
+// 可提现佣金金额
+let amount = ['50.00', '150.00']
+Mock.mock('/can-withdraw-amount', 'post', {
+  'amount|1': amount
 })
 // 绑定审核列表
 Mock.mock('/bind-verify-list', 'post', verifyList)

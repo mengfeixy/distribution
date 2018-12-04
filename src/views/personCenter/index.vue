@@ -1,9 +1,9 @@
 <template>
   <div style="position: relative;height: 100vh">
-    <Header :showText="false"></Header>
+    <Header :showText="false" :showQRcodeIco='showQRcodeIco' @viewQRcode='viewQRcode'></Header>
     <div class="center-header">
       <image style="width: 118px;height: 118px;margin: 104px auto 28px" :src="headerImg"/>
-      <text style="margin: 0 auto;color: white">18621549878</text>
+      <text style="margin: 0 auto;color: white">{{userAccount}}</text>
     </div>
     <div class="center-content">
       <div class="first-line">
@@ -11,8 +11,8 @@
         <text>可提现佣金</text>
       </div>
       <div class="second-line">
-        <text>¥0.00</text>
-        <button @click="showPopWithdraw = true">提现</button>
+        <text>¥{{amount}}</text>
+        <button @click="withdraw">提现</button>
       </div>
     </div>
     <button v-if="showBindBtn" class="default-btn" @click="showPop = true">绑定上级用户</button>
@@ -33,16 +33,22 @@
         </router-link>
       </div>
       <div>
-        <i class="iconfont distribution"></i>
-        <text>推广分销</text>
+        <router-link to="/keter">
+          <i class="iconfont distribution"></i>
+          <text>推广分销</text>
+        </router-link>
       </div>
       <div>
-        <i class="iconfont commissions"></i>
-        <text>佣金明细</text>
+        <router-link to="/keter/commission-detail">
+          <i class="iconfont commissions"></i>
+          <text>佣金明细</text>
+        </router-link>
       </div>
       <div>
-        <i class="iconfont withdrawal_record"></i>
-        <text>提现记录</text>
+        <!-- <router-link to="/keter/commission-detail"> -->
+          <i class="iconfont withdrawal_record"></i>
+          <text>提现记录</text>
+        <!-- </router-link> -->
       </div>
     </div>
 
@@ -64,11 +70,19 @@
       <div class="pop-mask" @click="showPopWithdraw = false"></div>
       <div class="pop-content">
         <div class="content-title">
-          <text>金额超过10元才可提现</text>
+          <text>金额超过100元才可提现</text>
         </div>
         <div class="confirm-btn">
-          <text @click="showPopWithdraw = false">确认</text>
+          <text @click="withdrawConfirm">确认</text>
         </div>
+      </div>
+    </div>
+    <!-- 二维码图片弹窗 -->
+    <div v-if="showQRcode">
+      <div class="pop-mask" @click="showQRcode = false"></div>
+      <div class="qrcode-img-box">
+        <i class="iconfont close" @click="showQRcode = false"></i>
+        <image class="qrimg" :src='qrcodeImg'/>
       </div>
     </div>
   </div>
@@ -87,23 +101,66 @@
     data () {
       return {
         headerImg: '/src/assets/images/headerImg@2x.png', // 头像
+        qrcodeImg: '/src/assets/images/qrcode.png', // 二维码图片
         showPop: false, // 绑定方式弹窗
         showPopWithdraw: false, // 提现弹窗
-        showBindBtn: false // 是否显示绑定上级用户按钮
+        showBindBtn: false, // 绑定上级用户按钮
+        showQRcode: false, // QRcode弹窗
+        showQRcodeIco: false, // 头部QRcode图标
+        userAccount: '', // user账号
+        amount: '' // 可提现金额
       }
     },
     created () {
-      stream.fetch({
-        method: 'post',
-        url: '/isLogin',
-        type: 'json'
-      }, (res) => {
-        let data = JSON.parse(res.data)
-        console.log(data, '是否登录')
-        if (data.code === 0) {
-          this.$router.replace('/login')
+      sessionStorage.setItem('user', '15554550888')
+
+      let data = sessionStorage.getItem('user')
+      if (data) {
+        this.userAccount = data
+        stream.fetch({
+          method: 'post',
+          url: '/isBind',
+          type: 'json'
+        }, (res) => {
+          let data = JSON.parse(res.data)
+          console.log(data, '是否绑定上级用户')
+          if (data.code === 0) { // 未绑定上级用户
+            this.showBindBtn = true
+            this.amount = '0.00'
+          } else { // 已绑定上级
+            this.showBindBtn = false
+            this.showQRcodeIco = true
+            stream.fetch({
+              method: 'post',
+              url: '/can-withdraw-amount',
+              type: 'json'
+            }, (res) => {
+              let data = JSON.parse(res.data)
+              console.log(data, '可提现金额')
+              this.amount = data.amount
+            })
+          }
+        })
+      } else {
+        this.$router.push('/login')
+      }
+    },
+    methods: {
+      // 点击查看二维码
+      viewQRcode () {
+        this.showQRcode = true
+      },
+      withdrawConfirm () {
+        this.showPopWithdraw = false
+      },
+      // 提现
+      withdraw () {
+        if (parseFloat(this.amount) > 100) {
+          this.$router.push('/keter/withdraw-cash')
+        } else {
+          this.showPopWithdraw = true
         }
-      })
+      }
     }
   }
 </script>
@@ -259,4 +316,31 @@
     position absolute
     top 2px
     right 32px
+
+  .qrcode-img-box
+    width 452px
+    height 460px
+    background rgba(255, 255, 255, 1)
+    position absolute
+    bottom 0
+    left 0
+    right 0
+    top 0
+    margin auto
+    z-index 6000
+    border-radius 16px
+
+  .qrcode-img-box
+    i
+      font-size 24px
+      position absolute
+      top 20px
+      right 20px
+    .qrimg
+      width 340px
+      height 340px
+      position absolute
+      top 50%
+      left 50%
+      transform translate(-50%, -50%)
 </style>
